@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,6 +24,8 @@ public class LonelyTwitterActivity extends Activity {
 	private ArrayList<Tweet> tweets;
 
 	private ArrayAdapter<Tweet> tweetsViewAdapter;
+	
+	private Summary mySummary;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -35,6 +38,8 @@ public class LonelyTwitterActivity extends Activity {
 
 		bodyText = (EditText) findViewById(R.id.body);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
+		
+		mySummary = new Summary();
 	}
 
 	@Override
@@ -66,5 +71,35 @@ public class LonelyTwitterActivity extends Activity {
 		tweetsViewAdapter.notifyDataSetChanged();
 		dataManager.saveTweets(tweets);
 	}
-
+	
+	public void summary(View v) {
+		createSummary();
+		
+		Intent intent = new Intent(this, SummaryActivity.class);
+		intent.putExtra("key", mySummary);
+		intent.putExtra("num", Integer.toString(mySummary.getNumberOfTweets()));
+		startActivity(intent);
+	}
+	
+	private void createSummary() {
+		mySummary.setAvgLatOfTweets(getAvgLatency());
+		mySummary.setAvgLenOfTweets(getAvgLength());
+		mySummary.setNumberOfTweets(getNumTweets());
+	}
+	
+	private long getAvgLength() {
+		return 0;
+	}
+	
+	private int getNumTweets() {
+		return tweets.size();
+	}
+	
+	private long getAvgLatency(){
+		return 0;
+	}
+	
+	
+	
+	
 }
