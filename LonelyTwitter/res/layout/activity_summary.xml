@@ -50,7 +50,7 @@
         android:id="@+id/avglength"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/avgLatency"
-        android:layout_below="@+id/avgLatency" />
+        android:layout_below="@+id/TextView05"
+        android:layout_toRightOf="@+id/avgLatency" />
 
 </RelativeLayout>

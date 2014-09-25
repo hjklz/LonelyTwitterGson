@@ -28,6 +28,7 @@ public class SummaryActivity extends Activity
 		//summ = (Summary)getIntent().getSerializableExtra("key");
 		
 		a.setText(getIntent().getCharSequenceExtra("num"));
+		b.setText(getIntent().getCharSequenceExtra("num2"));
 		
 		//b.setText(Long.toString(summ.getAvgLenOfTweets()));
 		//c.setText(Long.toString(summ.getAvgLatOfTweets()));

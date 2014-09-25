@@ -78,6 +78,7 @@ public class LonelyTwitterActivity extends Activity {
 		Intent intent = new Intent(this, SummaryActivity.class);
 		intent.putExtra("key", mySummary);
 		intent.putExtra("num", Integer.toString(mySummary.getNumberOfTweets()));
+		intent.putExtra("num2", Double.toString(mySummary.getAvgLenOfTweets()));
 		startActivity(intent);
 	}
 	
@@ -87,8 +88,13 @@ public class LonelyTwitterActivity extends Activity {
 		mySummary.setNumberOfTweets(getNumTweets());
 	}
 	
-	private long getAvgLength() {
-		return 0;
+	private double getAvgLength() {
+		double sum = 0;
+		for (Tweet t : tweets) {
+			sum += t.getTweetBody().toString().length();
+		}
+		
+		return sum/tweets.size();
 	}
 	
 	private int getNumTweets() {

@@ -7,7 +7,7 @@ public class Summary implements Serializable
 {
 	private int numberOfTweets;
 	private long avgLatOfTweets;
-	private long avgLenOfTweets;
+	private double avgLenOfTweets;
 		
 	public Summary(){
 		
@@ -28,7 +28,7 @@ public class Summary implements Serializable
 	}
 
 	
-	public long getAvgLatOfTweets()
+	public double getAvgLatOfTweets()
 	{
 	
 		return avgLatOfTweets;
@@ -42,14 +42,14 @@ public class Summary implements Serializable
 	}
 
 	
-	public long getAvgLenOfTweets()
+	public double getAvgLenOfTweets()
 	{
 	
 		return avgLenOfTweets;
 	}
 
 	
-	public void setAvgLenOfTweets(long avgLenOfTweets)
+	public void setAvgLenOfTweets(double avgLenOfTweets)
 	{
 	
 		this.avgLenOfTweets = avgLenOfTweets;
